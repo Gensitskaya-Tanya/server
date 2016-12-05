@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class GetListServlet extends HttpServlet { // отдает сообщения
+public class GetListServlet extends HttpServlet {
 	
 	private MessageList msgList = MessageList.getInstance();
 
@@ -25,7 +25,7 @@ public class GetListServlet extends HttpServlet { // отдает сообщен
 		
 		String json = msgList.toJSON(from);
 		if (json != null) {
-			OutputStream os = resp.getOutputStream(); //ответ сервера   на сообщение клиента
+			OutputStream os = resp.getOutputStream();
             byte[] buf = json.getBytes(StandardCharsets.UTF_8);
 			os.write(buf);
 		}

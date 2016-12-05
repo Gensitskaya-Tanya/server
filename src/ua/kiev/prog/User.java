@@ -1,8 +1,6 @@
 package ua.kiev.prog;
 
-/**
- * Created by ZaR on 27-Nov-16.
- */
+
 public class User {
     private String login;
     private String password;

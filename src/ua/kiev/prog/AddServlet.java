@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class AddServlet extends HttpServlet { //принимает сообщение, тоесть клиент шлет пост запросом JSON обьект
+public class AddServlet extends HttpServlet {
 
 	private MessageList msgList = MessageList.getInstance();
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
-		byte[] buf = requestBodyToArray(req); //возвращает содержимое входящего запроса нам в виде массива байтов
+		byte[] buf = requestBodyToArray(req);
         String bufStr = new String(buf, StandardCharsets.UTF_8);
 
 		Message msg = Message.fromJSON(bufStr);
@@ -25,7 +25,7 @@ public class AddServlet extends HttpServlet { //принимает сообще�
 			resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 	}
 
-	private byte[] requestBodyToArray(HttpServletRequest req) throws IOException {//как мі виполняем запрос
+	private byte[] requestBodyToArray(HttpServletRequest req) throws IOException {
         InputStream is = req.getInputStream();
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
         byte[] buf = new byte[10240];

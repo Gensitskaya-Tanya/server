@@ -27,7 +27,7 @@ public class MessageList {
 		list.add(m);
 	}
 	
-	public synchronized String toJSON(int n) { // взять в списке все сообщения от N до конца и вернуть их в виде JSON
+	public synchronized String toJSON(int n) {
 		if (n == list.size()) return null;
 		return gson.toJson(new JsonMessages(list, n));
 	}
